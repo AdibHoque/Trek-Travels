@@ -92,8 +92,8 @@ export default function NavBar() {
             {links}
           </ul>
         </details>
-        <Link className="mb-0 flex flex-wrap gap-1 text-2xl items-center justify-center font-bold leading-none text-green-500 animate__animated animate__fadeInRight md:text-3xl lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
-          <GiMountaintop className="text-5xl" /> Trek Travels
+        <Link className="mb-0 flex gap-1 text-2xl items-center justify-center font-bold leading-none text-green-500 animate__animated animate__fadeInRight md:text-3xl lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
+          <GiMountaintop className="text-4xl" /> TrekTravels
         </Link>
       </div>
       <div className="hidden navbar-center lg:flex animate__animated animate__fadeInDown">
@@ -128,7 +128,7 @@ export default function NavBar() {
         ) : match ? (
           <Link
             to="/register"
-            className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
             <FaUserPlus /> REGISTER
           </Link>
