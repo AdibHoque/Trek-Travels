@@ -135,7 +135,7 @@ export default function NavBar() {
         ) : (
           <Link
             to="/login"
-            className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
             <FaSignInAlt /> LOGIN
           </Link>
