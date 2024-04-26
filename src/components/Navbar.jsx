@@ -92,7 +92,7 @@ export default function NavBar() {
             {links}
           </ul>
         </details>
-        <Link className="mb-0 flex gap-1 text-2xl items-center justify-center font-bold leading-none text-green-500 animate__animated animate__fadeInRight md:text-3xl lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
+        <Link className="flex items-center justify-center gap-1 mb-0 text-2xl font-bold leading-none text-green-500 animate__animated animate__fadeInRight md:text-3xl lg:leading-none lg:text-3xl animate-fade-right animate-once font-playfair">
           <GiMountaintop className="text-4xl" /> TrekTravels
         </Link>
       </div>
@@ -122,7 +122,8 @@ export default function NavBar() {
               onClick={logOut}
               className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
             >
-              <FaSignOutAlt /> LOGOUT
+              <FaSignOutAlt className="text-xl" />
+              <span className="hidden md:block"> LOGOUT</span>
             </button>
           </div>
         ) : match ? (
