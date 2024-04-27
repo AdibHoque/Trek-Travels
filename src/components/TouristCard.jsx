@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 import PropTypes from "prop-types";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -8,8 +8,8 @@ export default function TouristCard({data}) {
   useEffect(() => {
     AOS.init();
   }, []);
-
   const {
+    _id,
     tourists_spot_name,
     image,
     country_name,
@@ -41,7 +41,7 @@ export default function TouristCard({data}) {
           <hr className="my-3" />
           <div className="justify-center card-actions">
             <Link
-              to={`/estates/1`}
+              to={`/touristspots/${_id}`}
               className="text-black bg-green-400 border-none hover:text-green-500 btn"
             >
               View Details

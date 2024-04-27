@@ -4,7 +4,7 @@ import TouristCard from "./TouristCard";
 export default function TouristSpots() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("/touristSpot.json")
+    fetch("http://localhost:5000/touristspots/")
       .then((data) => data.json())
       .then((data) => setData(data));
   }, []);
