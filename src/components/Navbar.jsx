@@ -29,7 +29,7 @@ export default function NavBar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/spots" className={navClass}>
+        <NavLink to="/alltouristspots" className={navClass}>
           <FaMountainSun /> All Tourists Spot
         </NavLink>
       </li>

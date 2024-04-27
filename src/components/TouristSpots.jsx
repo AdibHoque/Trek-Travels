@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import TouristCard from "./TouristCard";
+import {Link} from "react-router-dom";
 
 export default function TouristSpots() {
   const [data, setData] = useState([]);
@@ -15,12 +16,20 @@ export default function TouristSpots() {
           Tourist Spots
         </h1>
         <div className="grid grid-cols-1 gap-4 my-6 md:grid-cols-2 lg:grid-cols-3">
-          {data.map((d) => (
+          {data.slice(0, 6).map((d) => (
             <TouristCard
               key={`${Math.random() * 999999}id`}
               data={d}
             ></TouristCard>
           ))}
+        </div>
+        <div className="flex justify-center">
+          <Link
+            to={`/alltouristspots`}
+            className="text-black bg-green-400 border-none hover:text-green-500 btn"
+          >
+            Show More
+          </Link>
         </div>
       </div>
     </>
