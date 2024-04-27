@@ -4,18 +4,54 @@ import {AuthContext} from "../AuthProvider";
 export default function AddTouristSpot() {
   const {user} = useContext(AuthContext);
 
-  const handleUpdate = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    const username = form.get("username");
-    const photo = form.get("photo");
+    const username = user.displayName;
+    const email = user.email;
+    const image = form.get("photo");
+    const tourists_spot_name = form.get("tourists_spot_name");
+    const country_name = form.get("country_name");
+    const location = form.get("location");
+    const short_description = form.get("short_description");
+    const average_cost = form.get("average_cost");
+    const seasonality = form.get("seasonality");
+    const travel_time = form.get("travel_time");
+    const total_visitors_per_year = form.get("total_visitors_per_year");
+
+    const data = {
+      image: image,
+      tourists_spot_name: tourists_spot_name,
+      country_name: country_name,
+      location: location,
+      short_description: short_description,
+      average_cost: average_cost,
+      seasonality: seasonality,
+      travel_time: travel_time,
+      total_visitors_per_year: total_visitors_per_year,
+      email: email,
+      username: username,
+    };
+    fetch("http://localhost:5000/touristspots", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        alert(res.toString());
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <>
       <div className="hero min-h-[86vh] bg-base-200 animate__animated animate__slideInDown">
         <div className="w-full hero-content">
           <div className="w-full max-w-lg border-2 border-green-500 rounded-none shadow-2xl card bg-base-100">
-            <form onSubmit={handleUpdate} className="p-6">
+            <form onSubmit={handleAdd} className="p-6">
               <div className="flex flex-col gap-x-6 md:flex-row">
                 <div className="form-control">
                   <label className="label">
@@ -75,7 +111,7 @@ export default function AddTouristSpot() {
                   <span className="label-text">Country Name</span>
                 </label>
                 <select
-                  name="country"
+                  name="country_name"
                   required
                   className="rounded-none select select-bordered"
                 >
@@ -120,7 +156,7 @@ export default function AddTouristSpot() {
                     <span className="label-text">Average Cost</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Average Cost"
                     name="average_cost"
                     className="rounded-none input input-bordered"
@@ -158,9 +194,9 @@ export default function AddTouristSpot() {
                     <span className="label-text">Total Visitors Per Year</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Total Visitors Per Year"
-                    name="totaVisitorsPerYear"
+                    name="total_visitors_per_year"
                     className="rounded-none input input-bordered"
                     required
                   />
