@@ -23,7 +23,10 @@ export default function ViewDetails() {
 
   return (
     <>
-      <div className="flex items-center justify-center px-4 lg:px-24 lg:h-[88vh] my-2">
+      <div
+        id={_id}
+        className="flex items-center justify-center px-4 lg:px-24 lg:h-[88vh] my-2"
+      >
         <div className="p-6 shadow-xl card lg:card-side bg-zinc-900">
           <figure>
             <img src={image} alt={tourists_spot_name} />

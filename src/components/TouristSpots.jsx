@@ -23,7 +23,7 @@ export default function TouristSpots() {
             ></TouristCard>
           ))}
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center my-4">
           <Link
             to={`/alltouristspots`}
             className="text-black bg-green-400 border-none hover:text-green-500 btn"
