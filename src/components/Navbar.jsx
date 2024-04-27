@@ -34,7 +34,7 @@ export default function NavBar() {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/addspots" className={navClass}>
+        <NavLink to="/addtouristspot" className={navClass}>
           <FaPlus /> Add Tourists Spot
         </NavLink>
       </li>
@@ -53,14 +53,14 @@ export default function NavBar() {
             tabIndex={0}
             role="button"
             onClick={() => setNavToggle(!navToggle)}
-            className="z-50 p-2 mr-2 btn btn-square btn-outline lg:hidden"
+            className="z-50 p-2 mr-2 border-2 btn btn-square btn-outline border-muted lg:hidden"
           >
             {navToggle ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 text-2xl text-white stroke-current "
+                className="inline-block w-6 h-6 text-2xl stroke-current text-muted "
               >
                 <path
                   strokeLinecap="round"
@@ -74,7 +74,7 @@ export default function NavBar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 text-2xl text-white stroke-current "
+                className="inline-block w-6 h-6 text-2xl stroke-current text-muted "
               >
                 <path
                   strokeLinecap="round"
@@ -120,7 +120,7 @@ export default function NavBar() {
 
             <button
               onClick={logOut}
-              className="btn btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+              className="btn btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
             >
               <FaSignOutAlt className="text-xl" />
               <span className="hidden md:block"> LOGOUT</span>
