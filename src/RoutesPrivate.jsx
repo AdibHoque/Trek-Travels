@@ -14,7 +14,11 @@ RoutesPrivate.propTypes = {
 export default function RoutesPrivate({children}) {
   const {user, loading} = useContext(AuthContext);
   if (loading) {
-    return <span className="loading loading-spinner loading-lg"></span>;
+    return (
+      <div className="flex justify-center w-full">
+        <span className="text-green-500 loading loading-spinner size-40"></span>
+      </div>
+    );
   }
   if (user) return children;
   MySwal.fire({

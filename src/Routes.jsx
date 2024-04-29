@@ -31,7 +31,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/alltouristspots",
-        element: <AllTouristSpots></AllTouristSpots>,
+        element: (
+          <RoutesPrivate>
+            <AllTouristSpots></AllTouristSpots>
+          </RoutesPrivate>
+        ),
         loader: () => fetch(`http://localhost:5000/touristspots`),
       },
       {

@@ -61,14 +61,16 @@ export default function NavBar() {
             tabIndex={0}
             role="button"
             onClick={() => setNavToggle(!navToggle)}
-            className="z-50 p-2 mr-2 border-2 btn btn-square btn-outline border-muted lg:hidden"
+            className={`z-50 p-2 mr-2 border-2 btn btn-square btn-outline ${
+              navToggle ? "border-green-500" : "border-muted"
+            } lg:hidden`}
           >
             {navToggle ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 text-2xl stroke-current text-muted "
+                className="inline-block w-6 h-6 text-2xl text-green-500 stroke-current"
               >
                 <path
                   strokeLinecap="round"
@@ -95,7 +97,7 @@ export default function NavBar() {
           </summary>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52 animate-flip-down font-bold gap-2 border-2 border-muted"
+            className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52 animate-flip-down font-bold gap-2 border-2 border-base-300"
           >
             {links}
           </ul>
@@ -108,7 +110,7 @@ export default function NavBar() {
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
       <div className="flex navbar-end animate__animated animate__fadeInLeft">
-        <label className="swap swap-rotate">
+        <label className="swap swap-rotate hover:text-green-500">
           {/* this hidden checkbox controls the state */}
           <input onClick={() => setDarkTheme(!darkTheme)} type="checkbox" />
 

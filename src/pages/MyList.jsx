@@ -63,14 +63,20 @@ export default function MyList() {
       .then((data) => data.json())
       .then((data) => setData(data));
   }, [data]);
-
+  if (data.length == 0) {
+    return (
+      <div className="flex justify-center w-full">
+        <span className="text-green-500 loading loading-spinner size-40"></span>
+      </div>
+    );
+  }
   return (
     <>
       <div className="px-4 overflow-x-auto md:px-24 min-h-[87vh]">
         <h1 className="my-8 text-5xl font-bold text-center text-green-500 animate__animated animate__bounce font-merriweather banner-font">
           My List
         </h1>
-        <table className="mx-auto table-xs md:table-md lg:table-lg">
+        <table className="mx-auto mb-6 border table-xs table-zebra-zebra md:table-md lg:table-lg border-base-300">
           {/* head */}
           <thead>
             <tr>
