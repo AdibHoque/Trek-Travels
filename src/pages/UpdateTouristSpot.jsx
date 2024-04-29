@@ -1,10 +1,33 @@
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../AuthProvider";
+import {useLoaderData, useNavigate, useParams} from "react-router-dom";
 
-export default function AddTouristSpot() {
+export default function UpdateTouristSpot() {
   const {user} = useContext(AuthContext);
+  const {id} = useParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user.email != email) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
-  const handleAdd = (e) => {
+  const data = useLoaderData();
+  const {
+    _id,
+    tourists_spot_name,
+    image,
+    short_description,
+    country_name,
+    average_cost,
+    location,
+    total_visitors_per_year,
+    seasonality,
+    travel_time,
+    email,
+  } = data;
+
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const username = user.displayName;
@@ -32,15 +55,16 @@ export default function AddTouristSpot() {
       email: email,
       username: username,
     };
-    fetch("http://localhost:5000/touristspots", {
-      method: "POST",
+    fetch(`http://localhost:5000/touristspots/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
       .then((res) => {
-        alert(res.toString());
+        alert("Done");
+        console.log(res);
       })
       .catch((error) => {
         console.log(error);
@@ -49,12 +73,12 @@ export default function AddTouristSpot() {
   return (
     <>
       <h1 className="py-4 text-5xl font-bold text-center text-green-500 bg-base-200 animate__animated animate__bounce font-merriweather banner-font">
-        Add Tourist Spot
+        Update Tourist Spot
       </h1>
       <div className="hero min-h-[86vh] bg-base-200 animate__animated animate__slideInDown">
         <div className="w-full hero-content">
           <div className="w-full max-w-lg border-2 border-green-500 rounded-none shadow-2xl card bg-base-100">
-            <form onSubmit={handleAdd} className="p-6">
+            <form onSubmit={handleUpdate} className="p-6">
               <div className="flex flex-col gap-x-6 md:flex-row">
                 <div className="form-control">
                   <label className="label">
@@ -75,7 +99,7 @@ export default function AddTouristSpot() {
                   </label>
                   <input
                     type="email"
-                    placeholder={user.email}
+                    placeholder={email}
                     value={user.email}
                     name="email"
                     className="rounded-none input input-bordered"
@@ -90,7 +114,7 @@ export default function AddTouristSpot() {
                 </label>
                 <input
                   type="url"
-                  placeholder="Image URL (Recommended size 1200x800)"
+                  defaultValue={image}
                   name="photo"
                   className="rounded-none input input-bordered"
                   required
@@ -103,7 +127,7 @@ export default function AddTouristSpot() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Name of the Tourist Spot"
+                  defaultValue={tourists_spot_name}
                   name="tourists_spot_name"
                   className="rounded-none input input-bordered"
                   required
@@ -118,8 +142,8 @@ export default function AddTouristSpot() {
                   required
                   className="rounded-none select select-bordered"
                 >
-                  <option disabled selected>
-                    Country Name
+                  <option disabled defaultValue={country_name}>
+                    {country_name}
                   </option>
                   <option>Bangladesh</option>
                   <option>Thailand</option>
@@ -135,7 +159,7 @@ export default function AddTouristSpot() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Location of the Tourist Spot"
+                  defaultValue={location}
                   name="location"
                   className="rounded-none input input-bordered"
                   required
@@ -147,9 +171,9 @@ export default function AddTouristSpot() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Short Description of the Tourist Spot"
+                  defaultValue={short_description}
                   name="short_description"
-                  className="rounded-none input input-bordered"
+                  className="overflow-x-scroll rounded-none input input-bordered"
                   required
                 />
               </div>
@@ -159,8 +183,8 @@ export default function AddTouristSpot() {
                     <span className="label-text">Average Cost</span>
                   </label>
                   <input
-                    type="number"
-                    placeholder="Average Cost"
+                    type="text"
+                    defaultValue={average_cost}
                     name="average_cost"
                     className="rounded-none input input-bordered"
                     required
@@ -172,7 +196,7 @@ export default function AddTouristSpot() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Best Season to Visit"
+                    defaultValue={seasonality}
                     name="seasonality"
                     className="rounded-none input input-bordered"
                     required
@@ -186,7 +210,7 @@ export default function AddTouristSpot() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Travel Time"
+                    defaultValue={travel_time}
                     name="travel_time"
                     className="rounded-none input input-bordered"
                     required
@@ -198,7 +222,7 @@ export default function AddTouristSpot() {
                   </label>
                   <input
                     type="number"
-                    placeholder="Total Visitors Per Year"
+                    defaultValue={total_visitors_per_year}
                     name="total_visitors_per_year"
                     className="rounded-none input input-bordered"
                     required
@@ -207,7 +231,7 @@ export default function AddTouristSpot() {
               </div>
               <div className="mt-2 form-control">
                 <button className="font-bold bg-green-500 rounded-none btn text-gray-950 hover:text-white">
-                  Add Tourist Spot
+                  Update
                 </button>
               </div>
             </form>
