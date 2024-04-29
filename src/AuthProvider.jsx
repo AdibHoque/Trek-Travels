@@ -266,6 +266,8 @@ export default function AuthProvider({children}) {
           text: "Your account is signed out.",
           icon: "success",
         });
+      } else {
+        setLoading(false);
       }
     });
   };

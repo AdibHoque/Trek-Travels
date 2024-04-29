@@ -20,13 +20,13 @@ export default function TouristCard({data}) {
 
   return (
     <>
-      <div data-aos="fade-up" className="rounded-xs bg-zinc-900 card">
+      <div data-aos="fade-up" className="rounded-xs bg-base-300 card">
         <figure>
           <img src={image} alt={tourists_spot_name} />
         </figure>
-        <div className="gap-0 p-5 text-white card-body">
+        <div className="gap-0 p-5 card-body">
           <h3 className="mb-2 text-sm text-green-500">{country_name}</h3>
-          <h2 className="text-white card-title">{tourists_spot_name}</h2>
+          <h2 className=" card-title">{tourists_spot_name}</h2>
           <p>{location}</p>
           <div className="flex flex-wrap justify-between">
             <h4>
