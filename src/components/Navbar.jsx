@@ -56,7 +56,7 @@ export default function NavBar() {
     </>
   );
   return (
-    <div className="h-full navbar bg-base-300 lg:px-24 ">
+    <div className="h-full px-4 navbar bg-base-300 lg:px-24">
       <div className="navbar-start">
         <details className="dropdown ">
           <summary
@@ -123,7 +123,7 @@ export default function NavBar() {
 
           {/* sun icon */}
           <svg
-            className="w-10 h-10 fill-current swap-on"
+            className="w-8 h-8 fill-current swap-on"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -132,7 +132,7 @@ export default function NavBar() {
 
           {/* moon icon */}
           <svg
-            className="w-10 h-10 fill-current swap-off"
+            className="w-8 h-8 fill-current swap-off"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -159,25 +159,27 @@ export default function NavBar() {
 
             <button
               onClick={logOut}
-              className="md:btn md:btn-outline bg-transparent mx-1 font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+              className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
             >
               <FaSignOutAlt className="text-3xl md:text-xl" />
-              <span className="hidden md:block"> LOGOUT</span>
+              <span className="text-xs">LOGOUT</span>
             </button>
           </div>
         ) : match ? (
           <Link
             to="/register"
-            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
-            <FaUserPlus /> REGISTER
+            <FaUserPlus className="text-3xl md:text-xl" />
+            <span className="text-xs"> Register</span>
           </Link>
         ) : (
           <Link
             to="/login"
-            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
-            <FaSignInAlt /> LOGIN
+            <FaSignInAlt className="text-3xl md:text-xl" />{" "}
+            <span className="text-xs"> LOGIN</span>
           </Link>
         )}
       </div>
