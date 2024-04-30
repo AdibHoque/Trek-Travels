@@ -1,6 +1,11 @@
 import {useContext} from "react";
 import {AuthContext} from "../AuthProvider";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 export default function AddTouristSpot() {
   const {user} = useContext(AuthContext);
 
@@ -39,8 +44,14 @@ export default function AddTouristSpot() {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => {
-        alert(res.toString());
+      .then(() => {
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Added Tourist Spot!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error);

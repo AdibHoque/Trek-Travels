@@ -2,6 +2,11 @@ import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
 import {useLoaderData, useNavigate, useParams} from "react-router-dom";
 
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
 export default function UpdateTouristSpot() {
   const {user} = useContext(AuthContext);
   const {id} = useParams();
@@ -61,9 +66,14 @@ export default function UpdateTouristSpot() {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => {
-        alert("Done");
-        console.log(res);
+      .then(() => {
+        MySwal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfully Updated!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
         console.log(error);
