@@ -55,7 +55,7 @@ function TD({spot, country, cost, _id}) {
           onClick={() => deleteSpot(_id)}
           className="bg-red-600 border-none btn btn-error btn-xs"
         >
-          Detele
+          Delete
         </button>
       </td>
     </tr>
