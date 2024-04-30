@@ -32,7 +32,7 @@ export default function AddTouristSpot() {
       email: email,
       username: username,
     };
-    fetch("http://localhost:5000/touristspots", {
+    fetch("https://assignment-10-api-peach.vercel.app/touristspots", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

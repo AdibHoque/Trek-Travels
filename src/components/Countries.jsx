@@ -6,7 +6,7 @@ import CountryCard from "./CountryCard";
 export default function Countries() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/countries")
+    fetch("https://assignment-10-api-peach.vercel.app/countries")
       .then((data) => data.json())
       .then((data) => setData(data));
   }, []);

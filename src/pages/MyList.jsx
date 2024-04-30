@@ -19,7 +19,7 @@ function deleteSpot(id) {
     confirmButtonText: "Delete",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/touristspots/${id}`, {
+      fetch(`https://assignment-10-api-peach.vercel.app/touristspots/${id}`, {
         method: "DELETE",
       });
       Swal.fire({
@@ -59,7 +59,9 @@ export default function MyList() {
   const {user} = useContext(AuthContext);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/touristspots/user/${user.email}`)
+    fetch(
+      `https://assignment-10-api-peach.vercel.app/touristspots/user/${user.email}`
+    )
       .then((data) => data.json())
       .then((data) => setData(data));
   }, [data]);

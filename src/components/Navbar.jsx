@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import {FaMountainSun} from "react-icons/fa6";
 import {GiMountaintop} from "react-icons/gi";
+import {Tooltip} from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 export default function NavBar() {
   const [darkTheme, setDarkTheme] = useState(true);
@@ -110,7 +112,12 @@ export default function NavBar() {
         <ul className="gap-2 px-2 text-white menu menu-horizontal">{links}</ul>
       </div>
       <div className="flex navbar-end animate__animated animate__fadeInLeft">
-        <label className="swap swap-rotate hover:text-green-500">
+        <Tooltip id="theme-tooltip" className="z-50" />
+        <label
+          data-tooltip-id="theme-tooltip"
+          data-tooltip-content="Theme"
+          className="swap swap-rotate hover:text-green-500"
+        >
           {/* this hidden checkbox controls the state */}
           <input onClick={() => setDarkTheme(!darkTheme)} type="checkbox" />
 

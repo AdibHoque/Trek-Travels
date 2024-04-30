@@ -37,13 +37,16 @@ const routes = createBrowserRouter([
             <AllTouristSpots></AllTouristSpots>
           </RoutesPrivate>
         ),
-        loader: () => fetch(`http://localhost:5000/touristspots`),
+        loader: () =>
+          fetch(`https://assignment-10-api-peach.vercel.app/touristspots`),
       },
       {
         path: "/touristspots/:id",
         element: <ViewDetails></ViewDetails>,
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristspots/${params.id}`),
+          fetch(
+            `https://assignment-10-api-peach.vercel.app/touristspots/${params.id}`
+          ),
       },
       {
         path: "/addtouristspot",
@@ -69,13 +72,17 @@ const routes = createBrowserRouter([
           </RoutesPrivate>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristspots/${params.id}`),
+          fetch(
+            `https://assignment-10-api-peach.vercel.app/touristspots/${params.id}`
+          ),
       },
       {
         path: "/countries/:id",
         element: <CountrySpots></CountrySpots>,
         loader: ({params}) =>
-          fetch(`http://localhost:5000/touristspots/country/${params.id}`),
+          fetch(
+            `https://assignment-10-api-peach.vercel.app/touristspots/country/${params.id}`
+          ),
       },
     ],
   },

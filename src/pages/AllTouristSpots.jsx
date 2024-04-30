@@ -8,16 +8,17 @@ export default function AllTouristSpots() {
   function handleSort(event) {
     const type = event.target.value;
     if (type == "Average Cost - Descending") {
-      fetch(`http://localhost:5000/touristspots/sort/desc`)
+      fetch(`https://assignment-10-api-peach.vercel.app/touristspots/sort/desc`)
         .then((data) => data.json())
         .then((data) => setSortData(data));
     }
     if (type == "Average Cost - Ascending") {
-      fetch(`http://localhost:5000/touristspots/sort/asc`)
+      fetch(`https://assignment-10-api-peach.vercel.app/touristspots/sort/asc`)
         .then((data) => data.json())
         .then((data) => setSortData(data));
     }
   }
+
   const loaderData = useLoaderData();
   let data = [];
   if (sortData.length == 0) {

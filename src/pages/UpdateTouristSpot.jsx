@@ -55,7 +55,7 @@ export default function UpdateTouristSpot() {
       email: email,
       username: username,
     };
-    fetch(`http://localhost:5000/touristspots/${id}`, {
+    fetch(`https://assignment-10-api-peach.vercel.app/touristspots/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

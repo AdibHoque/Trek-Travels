@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 export default function TouristSpots() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/touristspots/")
+    fetch("https://assignment-10-api-peach.vercel.app/touristspots/")
       .then((data) => data.json())
       .then((data) => setData(data));
   }, []);
