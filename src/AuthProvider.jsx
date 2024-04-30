@@ -166,6 +166,7 @@ export default function AuthProvider({children}) {
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
+        setLoading(false);
       });
   };
   const logIn = (email, password) => {
@@ -191,6 +192,7 @@ export default function AuthProvider({children}) {
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
+        setLoading(false);
       });
   };
   const googleLogIn = () => {
@@ -218,6 +220,7 @@ export default function AuthProvider({children}) {
         );
         errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
         // ...
+        setLoading(false);
       });
   };
   const githubLogIn = () => {
@@ -244,7 +247,7 @@ export default function AuthProvider({children}) {
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
         errorAlert(errorMessageObj ? errorMessageObj.message : "Unkown Error");
-
+        setLoading(false);
         // ...
       });
   };
@@ -293,6 +296,7 @@ export default function AuthProvider({children}) {
         setErrorMessage(
           errorMessageObj ? errorMessageObj.message : "Unkown Error"
         );
+        setLoading(false);
       });
   };
 

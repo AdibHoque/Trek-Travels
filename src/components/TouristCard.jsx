@@ -22,7 +22,7 @@ export default function TouristCard({data}) {
     <>
       <div
         data-aos="fade-up"
-        className="border shadow-xl rounded-xs bg-base-300 card hover:border-green-500"
+        className="border shadow-xl border-base-100 rounded-xs bg-base-300 card hover:border-green-500"
       >
         <figure>
           <img src={image} alt={tourists_spot_name} />

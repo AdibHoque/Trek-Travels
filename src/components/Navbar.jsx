@@ -161,14 +161,14 @@ export default function NavBar() {
         ) : match ? (
           <Link
             to="/register"
-            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
             <FaUserPlus /> REGISTER
           </Link>
         ) : (
           <Link
             to="/login"
-            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-white border-2 text-white rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="btn btn-sm md:btn-md btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
           >
             <FaSignInAlt /> LOGIN
           </Link>

@@ -12,19 +12,21 @@ export default function CountryCard({data}) {
 
   return (
     <>
-      <div
-        data-aos="fade-up"
-        className="border shadow-xl rounded-xs bg-base-300 card hover:border-green-500"
-      >
-        <figure>
-          <img src={image} alt={country_name} className="w-full h-64" />
-        </figure>
-        <div className="gap-0 p-5 card-body">
-          <h2 className="text-green-500 card-title">{country_name}</h2>
-          <hr className="my-3" />
-          <p>{short_description}</p>
+      <Link to={`/countries/${country_name}`}>
+        <div
+          data-aos="fade-up"
+          className="border shadow-xl border-base-100 rounded-xs bg-base-300 card hover:border-green-500"
+        >
+          <figure>
+            <img src={image} alt={country_name} className="w-full h-64" />
+          </figure>
+          <div className="gap-0 p-5 card-body">
+            <h2 className="text-green-500 card-title">{country_name}</h2>
+            <hr className="my-3" />
+            <p>{short_description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 }
