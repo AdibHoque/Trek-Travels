@@ -6,9 +6,8 @@ import {Fade} from "react-awesome-reveal";
 export default function Root() {
   return (
     <>
+      <NavBar></NavBar>
       <Fade>
-        <NavBar></NavBar>
-
         <div className="bg-base-100">
           <Outlet></Outlet>
         </div>

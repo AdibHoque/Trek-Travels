@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useLoaderData} from "react-router-dom";
 import TouristCard from "../components/TouristCard";
 

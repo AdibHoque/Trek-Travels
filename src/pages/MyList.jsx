@@ -8,6 +8,13 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../AuthProvider";
 import {Link} from "react-router-dom";
 
+TD.propTypes = {
+  spot: PropTypes.string,
+  country: PropTypes.string,
+  cost: PropTypes.string,
+  _id: PropTypes.string,
+};
+
 function deleteSpot(id) {
   MySwal.fire({
     title: "Delete?",

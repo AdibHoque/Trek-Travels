@@ -1,14 +1,16 @@
-import {Link, useLoaderData} from "react-router-dom";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect} from "react";
-
+CountryCard.propTypes = {
+  data: PropTypes.object,
+};
 export default function CountryCard({data}) {
   useEffect(() => {
     AOS.init();
   }, []);
-  const {_id, image, country_name, short_description} = data;
+  const {image, country_name, short_description} = data;
 
   return (
     <>

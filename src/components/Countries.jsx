@@ -1,6 +1,4 @@
 import {useEffect, useState} from "react";
-import TouristCard from "./TouristCard";
-import {Link} from "react-router-dom";
 import CountryCard from "./CountryCard";
 
 export default function Countries() {

@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
 import {AuthContext} from "../AuthProvider";
 import {useLoaderData, useNavigate, useParams} from "react-router-dom";
 
@@ -14,7 +14,6 @@ export default function UpdateTouristSpot() {
 
   const data = useLoaderData();
   const {
-    _id,
     tourists_spot_name,
     image,
     short_description,

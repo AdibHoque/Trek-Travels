@@ -8,13 +8,11 @@ import {Fade} from "react-awesome-reveal";
 export default function Home() {
   return (
     <>
-      <Fade>
-        <Banner></Banner>
-        <TouristSpots></TouristSpots>
-        <Countries></Countries>
-        <Faq></Faq>
-        <OurPartners></OurPartners>
-      </Fade>
+      <Banner></Banner>
+      <TouristSpots></TouristSpots>
+      <Countries></Countries>
+      <Faq></Faq>
+      <OurPartners></OurPartners>
     </>
   );
 }

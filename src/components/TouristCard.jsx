@@ -1,9 +1,11 @@
-import {Link, useLoaderData} from "react-router-dom";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect} from "react";
-
+TouristCard.propTypes = {
+  data: PropTypes.object,
+};
 export default function TouristCard({data}) {
   useEffect(() => {
     AOS.init();
