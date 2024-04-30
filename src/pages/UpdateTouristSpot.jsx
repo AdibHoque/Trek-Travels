@@ -183,7 +183,7 @@ export default function UpdateTouristSpot() {
                     <span className="label-text">Average Cost</span>
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     defaultValue={average_cost}
                     name="average_cost"
                     className="rounded-none input input-bordered"

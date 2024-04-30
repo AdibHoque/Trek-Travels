@@ -41,7 +41,7 @@ export default function ViewDetails() {
 
             <div className="flex flex-col my-6 gap-y-2">
               <h4>
-                <span className="font-semibold">Average Cost: </span>
+                <span className="font-semibold">Average Cost: </span>$
                 {average_cost}
               </h4>
               <h4>

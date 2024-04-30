@@ -33,8 +33,7 @@ export default function TouristCard({data}) {
           <p>{location}</p>
           <div className="flex flex-wrap justify-between">
             <h4>
-              <span className="font-semibold">Avg. Cost: </span>
-              {average_cost}
+              <span className="font-semibold">Avg. Cost: </span>${average_cost}
             </h4>
             <h4>
               <span className="font-semibold">Visitors: </span>
