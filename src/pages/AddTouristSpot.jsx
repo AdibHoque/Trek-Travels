@@ -19,7 +19,7 @@ export default function AddTouristSpot() {
     const country_name = form.get("country_name");
     const location = form.get("location");
     const short_description = form.get("short_description");
-    const average_cost = form.get("average_cost");
+    const average_cost = parseInt(form.get("average_cost"));
     const seasonality = form.get("seasonality");
     const travel_time = form.get("travel_time");
     const total_visitors_per_year = form.get("total_visitors_per_year");

@@ -16,9 +16,13 @@ import {Tooltip} from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 
 export default function NavBar() {
-  const [darkTheme, setDarkTheme] = useState(true);
+  const storedTheme = JSON.parse(localStorage.getItem("theme"));
+  const [darkTheme, setDarkTheme] = useState(
+    storedTheme !== null ? storedTheme : false
+  );
 
   useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(darkTheme));
     document
       .querySelector("html")
       .setAttribute("data-theme", darkTheme ? "dark" : "light");
@@ -56,7 +60,7 @@ export default function NavBar() {
     </>
   );
   return (
-    <div className="h-full px-4 navbar bg-base-300 lg:px-24">
+    <div className="h-full px-2 md:8 navbar bg-base-300 lg:px-24">
       <div className="navbar-start">
         <details className="dropdown ">
           <summary
@@ -72,7 +76,7 @@ export default function NavBar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 text-2xl text-green-500 stroke-current"
+                className="inline-block w-6 h-6 text-2xl text-green-500 stroke-current swap-on"
               >
                 <path
                   strokeLinecap="round"
@@ -86,7 +90,7 @@ export default function NavBar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 text-2xl stroke-current text-muted "
+                className="inline-block w-6 h-6 text-2xl stroke-current text-muted swap-off"
               >
                 <path
                   strokeLinecap="round"
@@ -113,17 +117,15 @@ export default function NavBar() {
       </div>
       <div className="flex navbar-end animate__animated animate__fadeInLeft">
         <Tooltip id="theme-tooltip" className="z-50" />
-        <label
-          data-tooltip-id="theme-tooltip"
-          data-tooltip-content="Theme"
-          className="swap swap-rotate hover:text-green-500"
-        >
+        <label className="mx-2 swap swap-rotate hover:text-green-500">
           {/* this hidden checkbox controls the state */}
           <input onClick={() => setDarkTheme(!darkTheme)} type="checkbox" />
 
           {/* sun icon */}
           <svg
-            className="w-8 h-8 fill-current swap-on"
+            data-tooltip-id="theme-tooltip"
+            data-tooltip-content="Dark Theme"
+            className="w-10 h-10 fill-current swap-on"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -132,7 +134,9 @@ export default function NavBar() {
 
           {/* moon icon */}
           <svg
-            className="w-8 h-8 fill-current swap-off"
+            data-tooltip-id="theme-tooltip"
+            data-tooltip-content="Light Theme"
+            className="w-10 h-10 fill-current swap-off"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -143,8 +147,8 @@ export default function NavBar() {
           <span className="text-green-500 loading loading-spinner loading-lg"></span>
         ) : user ? (
           <div className="flex justify-center md:gap-2">
-            <div className="z-40 tooltip tooltip-bottom" data-tip={user.email}>
-              <button className="text-4xl text-white btn btn-circle btn-ghost">
+            <details className="dropdown dropdown-end">
+              <summary className="text-4xl text-white btn btn-circle btn-ghost">
                 {user.photoURL ? (
                   <div className="avatar">
                     <div className="w-10 rounded-full">
@@ -154,21 +158,24 @@ export default function NavBar() {
                 ) : (
                   <FaUserCircle />
                 )}
-              </button>
-            </div>
-
-            <button
-              onClick={logOut}
-              className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
-            >
-              <FaSignOutAlt className="text-3xl md:text-xl" />
-              <span className="text-xs">LOGOUT</span>
-            </button>
+              </summary>
+              <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 animate-flip-down animate-once font-bold">
+                <li>
+                  <button
+                    onClick={logOut}
+                    className="btn btn-outline bg-transparent font-roboto border-muted border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+                  >
+                    <FaSignOutAlt className="text-2xl" />
+                    <span className="">LOGOUT</span>
+                  </button>
+                </li>
+              </ul>
+            </details>
           </div>
         ) : match ? (
           <Link
             to="/register"
-            className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="flex flex-col items-center p-1 mx-0 bg-transparent md:btn md:btn-outline font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500"
           >
             <FaUserPlus className="text-3xl md:text-xl" />
             <span className="text-xs"> Register</span>
@@ -176,9 +183,9 @@ export default function NavBar() {
         ) : (
           <Link
             to="/login"
-            className="mx-0 p-1 flex flex-col items-center md:btn md:btn-outline bg-transparent font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500 hover:bg-[#202020]"
+            className="flex flex-col items-center p-1 mx-0 bg-transparent md:btn md:btn-outline font-roboto md:border-muted md:border-2 text-muted rounded-xs hover:border-green-500 hover:text-green-500"
           >
-            <FaSignInAlt className="text-3xl md:text-xl" />{" "}
+            <FaSignInAlt className="text-3xl md:text-xl" />
             <span className="text-xs"> LOGIN</span>
           </Link>
         )}
